@@ -1,0 +1,36 @@
+{
+  "name": "MindApp",
+  "description": "Utility for working with Emotiv Insight",
+  "version": "0.3",
+  "permissions": ["alarms", "tabs", "bookmarks", "*://*/*", "http://*/*"],
+  "background": {
+    "persistent": false,    
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_title": "show tab inspector"
+  },  
+  "manifest_version": 2,
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": { "default": "Ctrl+Shift+Y" },
+      "description": "Send a 'toggle-feature' event to the extension"
+    },
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "js": [ "content_script.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+    }
+  ]
+    
+  
+  
+  
+}
